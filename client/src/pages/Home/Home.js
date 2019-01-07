@@ -14,7 +14,7 @@ class Home extends Component {
     q: "",
     start_year: "",
     end_year: "",
-    message: "Search For Articles To Begin!"
+    message: "Articles Will Populate Here!"
   };
 
   handleInputChange = event => {
@@ -34,7 +34,7 @@ class Home extends Component {
         this.setState({
           articles: res.data,
           message: !res.data.length
-            ? "No New Articles Found, Try a Different Query"
+            ? "No New Articles Found, Try Something Else"
             : ""
         })
       )
@@ -51,14 +51,14 @@ class Home extends Component {
     API.saveArticle(article).then(res => this.getArticles());
   };
 
-  render() {
+  render() { 
     return (
       <Container>
         <Row>
           <Col size="md-12">
             <Jumbotron>
               <h1 className="text-center">
-                <strong>(ReactJS) New York Times Article Scrubber</strong>
+                <strong>News Article Scraper</strong>
               </h1>
               <h2 className="text-center">
                 Search for and save articles of interest.
@@ -66,7 +66,7 @@ class Home extends Component {
             </Jumbotron>
           </Col>
           <Col size="md-12">
-            <Card title="Query" icon="newspaper-o">
+            <Card title="What would you like to read?" icon="newspaper-o">
               <Form
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
